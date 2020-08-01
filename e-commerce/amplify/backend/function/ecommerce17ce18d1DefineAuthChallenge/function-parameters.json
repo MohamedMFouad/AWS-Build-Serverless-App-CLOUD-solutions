@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "captcha-define-challenge"
+    ],
+    "parentResource": "ecommerce17ce18d1",
+    "functionName": "ecommerce17ce18d1DefineAuthChallenge",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "DefineAuthChallenge.json.ejs",
+    "roleName": "ecommerce17ce18d1DefineAuthChallenge",
+    "skipEdit": true,
+    "resourceName": "ecommerce17ce18d1DefineAuthChallenge"
+}

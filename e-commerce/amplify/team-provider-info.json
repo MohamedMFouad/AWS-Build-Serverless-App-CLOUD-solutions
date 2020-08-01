@@ -10,6 +10,18 @@
             "StackName": "amplify-e-commerce-prod-14406",
             "StackId": "arn:aws:cloudformation:us-east-2:027463813762:stack/amplify-e-commerce-prod-14406/bc0e9760-d387-11ea-b6b7-0249de0bf3ca",
             "AmplifyAppId": "d3ckt8jv15nfvk"
+        },
+        "categories": {
+            "function": {
+                "ecommerce17ce18d1DefineAuthChallenge": {},
+                "ecommerce17ce18d1CreateAuthChallenge": {},
+                "ecommerce17ce18d1VerifyAuthChallengeResponse": {
+                    "RECAPTCHASECRET": ""
+                }
+            },
+            "auth": {
+                "ecommerce17ce18d1": {}
+            }
         }
     }
 }

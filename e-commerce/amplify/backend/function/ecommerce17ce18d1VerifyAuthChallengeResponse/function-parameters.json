@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "captcha-verify"
+    ],
+    "parentResource": "ecommerce17ce18d1",
+    "functionName": "ecommerce17ce18d1VerifyAuthChallengeResponse",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "VerifyAuthChallengeResponse.json.ejs",
+    "roleName": "ecommerce17ce18d1VerifyAuthChallengeResponse",
+    "skipEdit": true,
+    "resourceName": "ecommerce17ce18d1VerifyAuthChallengeResponse"
+}
