@@ -1,8 +1,0 @@
-type Ecommerce @model {
-  id: ID!  
-  name: String!
-  price: Float!
-  description: String
-}
-
- 

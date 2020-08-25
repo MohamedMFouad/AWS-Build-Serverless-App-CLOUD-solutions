@@ -1,26 +1,19 @@
 {
     "prod": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-e-commerce-prod-14406-authRole",
-            "UnauthRoleArn": "arn:aws:iam::027463813762:role/amplify-e-commerce-prod-14406-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::027463813762:role/amplify-e-commerce-prod-14406-authRole",
-            "Region": "us-east-2",
-            "DeploymentBucketName": "amplify-e-commerce-prod-14406-deployment",
-            "UnauthRoleName": "amplify-e-commerce-prod-14406-unauthRole",
-            "StackName": "amplify-e-commerce-prod-14406",
-            "StackId": "arn:aws:cloudformation:us-east-2:027463813762:stack/amplify-e-commerce-prod-14406/bc0e9760-d387-11ea-b6b7-0249de0bf3ca",
-            "AmplifyAppId": "d3ckt8jv15nfvk"
+            "AuthRoleName": "amplify-ecomerce-prod-22837-authRole",
+            "UnauthRoleArn": "arn:aws:iam::027463813762:role/amplify-ecomerce-prod-22837-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::027463813762:role/amplify-ecomerce-prod-22837-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-ecomerce-prod-22837-deployment",
+            "UnauthRoleName": "amplify-ecomerce-prod-22837-unauthRole",
+            "StackName": "amplify-ecomerce-prod-22837",
+            "StackId": "arn:aws:cloudformation:us-east-1:027463813762:stack/amplify-ecomerce-prod-22837/ee1353a0-e669-11ea-97c7-0a1f955da693",
+            "AmplifyAppId": "d12gyhzdlqrd3w"
         },
         "categories": {
-            "function": {
-                "ecommerce17ce18d1DefineAuthChallenge": {},
-                "ecommerce17ce18d1CreateAuthChallenge": {},
-                "ecommerce17ce18d1VerifyAuthChallengeResponse": {
-                    "RECAPTCHASECRET": ""
-                }
-            },
             "auth": {
-                "ecommerce17ce18d1": {}
+                "ecomerce21bf754c": {}
             }
         }
     }

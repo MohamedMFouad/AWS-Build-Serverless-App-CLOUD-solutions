@@ -9,38 +9,6 @@ Parameters:
     Type: String
   
   
-  
-  
-  functionecommerce17ce18d1DefineAuthChallengeArn: 
-    Type: String
-    Default: functionecommerce17ce18d1DefineAuthChallengeArn
-  
-  functionecommerce17ce18d1DefineAuthChallengeName: 
-    Type: String
-    Default: functionecommerce17ce18d1DefineAuthChallengeName
-  
-  
-  
-  functionecommerce17ce18d1CreateAuthChallengeArn: 
-    Type: String
-    Default: functionecommerce17ce18d1CreateAuthChallengeArn
-  
-  functionecommerce17ce18d1CreateAuthChallengeName: 
-    Type: String
-    Default: functionecommerce17ce18d1CreateAuthChallengeName
-  
-  
-  
-  functionecommerce17ce18d1VerifyAuthChallengeResponseArn: 
-    Type: String
-    Default: functionecommerce17ce18d1VerifyAuthChallengeResponseArn
-  
-  functionecommerce17ce18d1VerifyAuthChallengeResponseName: 
-    Type: String
-    Default: functionecommerce17ce18d1VerifyAuthChallengeResponseName
-  
-  
-  
 
     
   identityPoolName:
@@ -117,19 +85,10 @@ Parameters:
                       
   usernameAttributes:
     Type: CommaDelimitedList
-      
-  triggers:
-    Type: String
-                      
+              
   userPoolGroupList:
     Type: CommaDelimitedList
-                        
-  parentStack:
-    Type: String
-                
-  permissions:
-    Type: CommaDelimitedList
-              
+                          
   dependsOn:
     Type: CommaDelimitedList
     
@@ -144,7 +103,7 @@ Resources:
   # Created to allow the UserPool SMS Config to publish via the Simple Notification Service during MFA Process
     Type: AWS::IAM::Role
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, 'ecomme17ce18d1_sns-role', !Join ['',[ 'sns', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, 'ecomer21bf754c_sns-role', !Join ['',[ 'sns', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
       AssumeRolePolicyDocument: 
         Version: "2012-10-17"
         Statement: 
@@ -156,10 +115,10 @@ Resources:
               - "sts:AssumeRole"
             Condition: 
               StringEquals:
-                sts:ExternalId: ecomme17ce18d1_role_external_id
+                sts:ExternalId: ecomer21bf754c_role_external_id
       Policies: 
         - 
-          PolicyName: ecomme17ce18d1-sns-policy
+          PolicyName: ecomer21bf754c-sns-policy
           PolicyDocument: 
             Version: "2012-10-17"
             Statement: 
@@ -184,29 +143,7 @@ Resources:
           Required: true
           Mutable: true
         
-        -
-          Name: name
-          Required: true
-          Mutable: true
-        
       
-      
-      LambdaConfig:
-        
-          CreateAuthChallenge: !Ref functionecommerce17ce18d1CreateAuthChallengeArn
-        
-        
-        
-          DefineAuthChallenge: !Ref functionecommerce17ce18d1DefineAuthChallengeArn
-        
-        
-        
-        
-        
-        
-        
-          VerifyAuthChallengeResponse: !Ref functionecommerce17ce18d1VerifyAuthChallengeResponseArn
-        
       
       
       AutoVerifiedAttributes: !Ref autoVerifiedAttributes
@@ -229,54 +166,15 @@ Resources:
       SmsVerificationMessage: !Ref smsVerificationMessage
       SmsConfiguration: 
         SnsCallerArn: !GetAtt SNSRole.Arn
-        ExternalId: ecomme17ce18d1_role_external_id
+        ExternalId: ecomer21bf754c_role_external_id
     
-  
-  
-  UserPoolCreateAuthChallengeLambdaInvokePermission: 
-    Type: "AWS::Lambda::Permission"
-    DependsOn: UserPool
-    Properties: 
-      Action: "lambda:invokeFunction"
-      Principal: "cognito-idp.amazonaws.com"
-      FunctionName: !Ref functionecommerce17ce18d1CreateAuthChallengeName
-      SourceArn: !GetAtt UserPool.Arn
-    
-    
-  
-  UserPoolDefineAuthChallengeLambdaInvokePermission: 
-    Type: "AWS::Lambda::Permission"
-    DependsOn: UserPool
-    Properties: 
-      Action: "lambda:invokeFunction"
-      Principal: "cognito-idp.amazonaws.com"
-      FunctionName: !Ref functionecommerce17ce18d1DefineAuthChallengeName
-      SourceArn: !GetAtt UserPool.Arn
-  
-    
-    
-  
-  
-   
-  
-  UserPoolVerifyAuthChallengeResponseLambdaInvokePermission: 
-    Type: "AWS::Lambda::Permission"
-    DependsOn: UserPool
-    Properties: 
-      Action: "lambda:invokeFunction"
-      Principal: "cognito-idp.amazonaws.com"
-      FunctionName: !Ref functionecommerce17ce18d1VerifyAuthChallengeResponseName
-      SourceArn: !GetAtt UserPool.Arn
-    
-  # Updating lambda role with permissions to Cognito
-  
   
   UserPoolClientWeb:
   # Created provide application access to user pool
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: ecomme17ce18d1_app_clientWeb
+      ClientName: ecomer21bf754c_app_clientWeb
       
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
@@ -286,7 +184,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: ecomme17ce18d1_app_client
+      ClientName: ecomer21bf754c_app_client
       
       GenerateSecret: !Ref userpoolClientGenerateSecret
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
@@ -351,7 +249,7 @@ Resources:
   # Marked as depending on UserPoolClientRole for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: ecomme17ce18d1_userpoolclient_lambda_iam_policy
+      PolicyName: ecomer21bf754c_userpoolclient_lambda_iam_policy
       Roles: 
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -368,7 +266,7 @@ Resources:
   # Marked as depending on UserPoolClientLambdaPolicy for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: ecomme17ce18d1_userpoolclient_lambda_log_policy
+      PolicyName: ecomer21bf754c_userpoolclient_lambda_log_policy
       Roles: 
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -408,7 +306,7 @@ Resources:
   # Always created
     Type: AWS::Cognito::IdentityPool
     Properties: 
-      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'ecommerce17ce18d1_identitypool_17ce18d1', !Join ['',['ecommerce17ce18d1_identitypool_17ce18d1', '__', !Ref env]]]
+      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'ecomerce21bf754c_identitypool_21bf754c', !Join ['',['ecomerce21bf754c_identitypool_21bf754c', '__', !Ref env]]]
       
       CognitoIdentityProviders:
         - ClientId:  !Ref UserPoolClient

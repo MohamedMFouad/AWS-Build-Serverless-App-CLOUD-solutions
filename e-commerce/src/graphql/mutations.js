@@ -1,41 +1,38 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createEcommerce = /* GraphQL */ `
-  mutation CreateEcommerce(
-    $input: CreateEcommerceInput!
-    $condition: ModelEcommerceConditionInput
+export const createTodo = /* GraphQL */ `
+  mutation CreateTodo(
+    $input: CreateTodoInput!
+    $condition: ModelTodoConditionInput
   ) {
-    createEcommerce(input: $input, condition: $condition) {
+    createTodo(input: $input, condition: $condition) {
       id
       name
-      price
       description
     }
   }
 `;
-export const updateEcommerce = /* GraphQL */ `
-  mutation UpdateEcommerce(
-    $input: UpdateEcommerceInput!
-    $condition: ModelEcommerceConditionInput
+export const updateTodo = /* GraphQL */ `
+  mutation UpdateTodo(
+    $input: UpdateTodoInput!
+    $condition: ModelTodoConditionInput
   ) {
-    updateEcommerce(input: $input, condition: $condition) {
+    updateTodo(input: $input, condition: $condition) {
       id
       name
-      price
       description
     }
   }
 `;
-export const deleteEcommerce = /* GraphQL */ `
-  mutation DeleteEcommerce(
-    $input: DeleteEcommerceInput!
-    $condition: ModelEcommerceConditionInput
+export const deleteTodo = /* GraphQL */ `
+  mutation DeleteTodo(
+    $input: DeleteTodoInput!
+    $condition: ModelTodoConditionInput
   ) {
-    deleteEcommerce(input: $input, condition: $condition) {
+    deleteTodo(input: $input, condition: $condition) {
       id
       name
-      price
       description
     }
   }

@@ -1,27 +1,25 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getEcommerce = /* GraphQL */ `
-  query GetEcommerce($id: ID!) {
-    getEcommerce(id: $id) {
+export const getTodo = /* GraphQL */ `
+  query GetTodo($id: ID!) {
+    getTodo(id: $id) {
       id
       name
-      price
       description
     }
   }
 `;
-export const listEcommerces = /* GraphQL */ `
-  query ListEcommerces(
-    $filter: ModelEcommerceFilterInput
+export const listTodos = /* GraphQL */ `
+  query ListTodos(
+    $filter: ModelTodoFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listEcommerces(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name
-        price
         description
       }
       nextToken

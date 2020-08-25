@@ -1,58 +1,13 @@
 {
-	"function": {
-		"ecommerce17ce18d1DefineAuthChallenge": {
-			"service": "Lambda",
-			"providerPlugin": "awscloudformation",
-			"build": true
-		},
-		"ecommerce17ce18d1CreateAuthChallenge": {
-			"service": "Lambda",
-			"providerPlugin": "awscloudformation",
-			"build": true
-		},
-		"ecommerce17ce18d1VerifyAuthChallengeResponse": {
-			"service": "Lambda",
-			"providerPlugin": "awscloudformation",
-			"build": true
-		}
-	},
 	"auth": {
-		"ecommerce17ce18d1": {
+		"ecomerce21bf754c": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
-			"dependsOn": [
-				{
-					"category": "function",
-					"resourceName": "ecommerce17ce18d1DefineAuthChallenge",
-					"triggerProvider": "Cognito",
-					"attributes": [
-						"Arn",
-						"Name"
-					]
-				},
-				{
-					"category": "function",
-					"resourceName": "ecommerce17ce18d1CreateAuthChallenge",
-					"triggerProvider": "Cognito",
-					"attributes": [
-						"Arn",
-						"Name"
-					]
-				},
-				{
-					"category": "function",
-					"resourceName": "ecommerce17ce18d1VerifyAuthChallengeResponse",
-					"triggerProvider": "Cognito",
-					"attributes": [
-						"Arn",
-						"Name"
-					]
-				}
-			]
+			"dependsOn": []
 		}
 	},
 	"api": {
-		"ecommerce": {
+		"ecomerce": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {
@@ -61,7 +16,7 @@
 					"defaultAuthentication": {
 						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
 						"userPoolConfig": {
-							"userPoolId": "authecommerce17ce18d1"
+							"userPoolId": "authecomerce21bf754c"
 						}
 					}
 				}
